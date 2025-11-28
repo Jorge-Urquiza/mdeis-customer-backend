@@ -31,3 +31,15 @@ jobs:
 
       - name: Build project
         run: npm run build
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          args: >
+            -Dsonar.projectKey=mdeis-customer-backend
+            -Dsonar.organization=dazes97
+            -Dsonar.sources=src
+            -Dsonar.tests=src
+            -Dsonar.exclusions=**/*.spec.ts
+            -Dsonar.typescript.tsconfigPaths=tsconfig.json
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
