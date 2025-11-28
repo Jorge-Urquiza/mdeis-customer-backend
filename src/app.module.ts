@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MeasurementUnitsModule } from './measurement-units/measurement-units.module';
 import { ProductModule } from './product/product.module';
+import { EmployeesModule } from './employees/employees.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { ProductModule } from './product/product.module';
     }),
     MeasurementUnitsModule,
     ProductModule,
+    EmployeesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
