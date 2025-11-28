@@ -5,9 +5,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { MeasurementUnitsModule } from './measurement-units/measurement-units.module';
 import { ProductModule } from './product/product.module';
 import { EmployeesModule } from './employees/employees.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: process.env.DB_HOST || 'localhost',
