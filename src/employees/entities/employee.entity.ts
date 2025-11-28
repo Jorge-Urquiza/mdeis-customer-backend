@@ -30,7 +30,7 @@ export class Employee {
   lastNameMaternal?: string;
 
   @Column({ name: 'birth_date', type: 'date', nullable: true })
-  birthDate?: Date | null; // 👈 AHORA ES DATE
+  birthDate?: Date | null;
 
   @Column({ type: 'varchar', length: 150 })
   email: string;
@@ -48,7 +48,7 @@ export class Employee {
 
   @Column({ name: 'hire_date', type: 'date' })
   hireDate: Date;
-  
+
   @Column({ type: 'varchar', length: 100 })
   position: string;
 
