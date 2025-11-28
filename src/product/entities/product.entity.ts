@@ -37,7 +37,6 @@ export class Product {
     onDelete: 'RESTRICT',
     eager: true,
   })
-  
   @JoinColumn({ name: 'measurement_unit_id' })
   measurementUnit: MeasurementUnit;
 

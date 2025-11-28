@@ -1,0 +1,33 @@
+name: CI Backend
+
+on:
+  push:
+    branches:
+      - infrastructure
+      #- develop //TODO: Uncomment this line to run tests on develop branch as well
+      #- release //TODO: Uncomment this line to run tests on release branch as well
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: npm install
+
+      # - name: Run lint (optional) //TODO: Uncomment this line to run lint on final build
+      #   run: npm run lint // TODO: Uncomment this line to run lint on final build
+
+      - name: Run unit tests
+        run: npm test
+
+      - name: Build project
+        run: npm run build

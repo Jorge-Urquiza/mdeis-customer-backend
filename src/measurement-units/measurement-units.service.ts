@@ -19,8 +19,8 @@ export class MeasurementUnitsService {
 
   findAll() {
     return this.measurementUnitRepository.find({
-    where: { deletedAt: IsNull() },
-  });
+      where: { deletedAt: IsNull() },
+    });
   }
 
   async findOne(id: number) {
