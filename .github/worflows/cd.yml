@@ -1,0 +1,25 @@
+name: CD backend
+
+on:
+  push:
+    branches:
+      - release
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    container: ghcr.io/railwayapp/cli:latest
+    env:
+      SVC_ID: ${{ secrets.RAILWAY_SERVICE_ID }}
+      RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build project
+        run: |
+          npm ci
+          npm run build
+
+      - name: Deploy to Railway
+        run: railway up --service=${{ env.SVC_ID }}
