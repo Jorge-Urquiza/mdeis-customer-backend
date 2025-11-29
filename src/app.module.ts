@@ -6,6 +6,7 @@ import { MeasurementUnitsModule } from './measurement-units/measurement-units.mo
 import { ProductModule } from './product/product.module';
 import { EmployeesModule } from './employees/employees.module';
 import { ConfigModule } from '@nestjs/config';
+import { CustomersModule } from './customers/customers.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { ConfigModule } from '@nestjs/config';
     MeasurementUnitsModule,
     ProductModule,
     EmployeesModule,
+    CustomersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
