@@ -203,7 +203,8 @@ describe('ProductsService', () => {
       repository.findOne!.mockResolvedValue(existingProduct);
       repository.softRemove!.mockResolvedValue(existingProduct);
 
-      const result = await service.remove(3);//TODO: change to 1
+
+      const result = await service.remove(1);
 
       expect(repository.findOne).toHaveBeenCalledWith({ where: { id: 1 } });
       expect(repository.softRemove).toHaveBeenCalledWith(existingProduct);
