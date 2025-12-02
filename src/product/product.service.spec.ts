@@ -84,13 +84,13 @@ describe('ProductsService', () => {
       });
       expect(repository.save).toHaveBeenCalledWith(createdProduct);
       //TODO: product test failing here
-      // expect(result).toEqual(createdProduct);
-      expect(result).toEqual(
-        {
-          ...createdProduct,
-          price: 999,
-        }
-      );
+      expect(result).toEqual(createdProduct);
+      // expect(result).toEqual(
+      //   {
+      //     ...createdProduct,
+      //     price: 999,
+      //   }
+      // );
     });
   });
 
