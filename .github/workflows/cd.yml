@@ -1,9 +1,6 @@
 name: CD backend
 
 on:
-  # push:
-  #   branches:
-  #     - release
   workflow_run:
     workflows: ["CI Backend"]
     types:
@@ -11,8 +8,6 @@ on:
 
 jobs:
   deploy:
-    # Solo correr si el CI terminó en success
-    # y la rama que se analizó es 'release'
     if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'release' }}
     runs-on: ubuntu-latest
     #runs-on: ubuntu-latest
